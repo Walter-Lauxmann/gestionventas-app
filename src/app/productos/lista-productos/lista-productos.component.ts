@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 import { ProductosService } from '../../servicios/productos.service';
 
@@ -10,7 +11,8 @@ import { ProductosService } from '../../servicios/productos.service';
   standalone: true,
   imports: [
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   templateUrl: './lista-productos.component.html',
   styleUrl: './lista-productos.component.css'

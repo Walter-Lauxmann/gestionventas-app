@@ -19,16 +19,16 @@ export class ProductosService {
     imagen: ''
   }
 
-  url= 'http://localhost/api/datos.php?tabla=productos';
+  url= 'http://localhost/api/modelos1/datos.php?tabla=productos';
 
   constructor(private http: HttpClient) { }
 
   getProductos(): Observable<Productos[]> {
-    return this.http.get<Productos[]>(`${this.url}&accion=seleccionar`); 
+    return this.http.get<Productos[]>(`${this.url}&accion=seleccionar`);
   }
 
   getProducto(id: any): Observable<Productos[]> {
     return this.http.get<Productos[]>(`${this.url}&accion=seleccionar&id=${id}`);
-  }  
+  }
 
 }
