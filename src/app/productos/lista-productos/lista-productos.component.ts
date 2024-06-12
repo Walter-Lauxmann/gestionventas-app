@@ -4,12 +4,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
 import { ProductosService } from '../../servicios/productos.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-lista-productos',
   standalone: true,
   imports: [
+    RouterLink,
     MatButtonModule,
     MatCardModule,
     MatIconModule
