@@ -1,5 +1,12 @@
 <section class="container">
   <h2>Lista de equipos</h2>
+  <div class="boton-flotante">
+    <a [routerLink]="'detalle-producto/0'">
+      <button mat-fab color="primary">
+          <mat-icon>add</mat-icon>
+      </button>
+    </a>
+  </div>
   <div class="row">
     @for(producto of productos; track producto.nombre) {
     <div class="col-md-3">
@@ -47,9 +54,10 @@
         </mat-card-content>
         <mat-card-actions>
           <a [routerLink]="['/detalle-producto', producto.id]">
-            <button mat-raised-button color="primary">EDITAR</button>
+            <button mat-raised-button color="primary">
+             <mat-icon>edit</mat-icon> EDITAR
+            </button>
           </a>
-          <button mat-button>SHARE</button>
         </mat-card-actions>
       </mat-card>
     </div>

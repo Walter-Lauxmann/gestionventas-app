@@ -31,4 +31,28 @@ export class ProductosService {
     return this.http.get<Productos[]>(`${this.url}&accion=seleccionar&id=${id}`);
   }
 
+  guardarProducto(id: any, datos: Productos) {
+    if(id > 0) {
+      this.http.post(`${this.url}&accion=actualizar&id=${id}`, datos)
+      .subscribe(
+        res => { console.log(res) },
+        err => { console.log('Ocurrió un error') }
+      )
+    } else {
+      this.http.post(`${this.url}&accion=insertar&id=${id}`, datos)
+      .subscribe(
+        res => { console.log(res) },
+        err => { console.log('Ocurrió un error') }
+      )
+    }
+  }
+
+  eliminarProducto(id: any) {
+    this.http.post(`${this.url}&accion=eliminar&id=${id}`, {})
+      .subscribe(
+        res => { console.log(res) },
+        err => { console.log('Ocurrió un error') }
+      )
+  }
+
 }
