@@ -2,7 +2,7 @@
 <form #formulario="ngForm">
   <div class="row">
     <div class="col-md-4">
-      <img src="http://localhost/api/modelos1/img/productos/{{producto.imagen}}" alt="{{producto.nombre}}">
+      <img src="http://localhost/api/modelos1/img/productos/{{producto.imagen||'nodisponible.png'}}" alt="{{producto.nombre}}">
     </div>
     <div class="col-md-8">
       <div class="row">
@@ -48,11 +48,12 @@
         <button mat-raised-button color="primary" (click)="guardarProducto(producto.id)">
           <mat-icon>done</mat-icon>Guardar
         </button>
+        @if( producto.id > 0 ) {
         <button mat-raised-button color="warn" (click)="eliminarProducto(producto.id)">
           <mat-icon>delete</mat-icon>Eliminar
         </button>
+        }
       </div>
-
     </div>
   </div>
 </form>

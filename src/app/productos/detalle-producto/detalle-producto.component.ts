@@ -1,6 +1,6 @@
 import { MatButtonModule } from '@angular/material/button';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductosService } from '../../servicios/productos.service';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
@@ -26,6 +26,7 @@ export class DetalleProductoComponent implements OnInit {
 
   constructor(
     private ruta: ActivatedRoute,
+    private router: Router,
     private productosService: ProductosService
   ) {}
 
@@ -55,12 +56,15 @@ export class DetalleProductoComponent implements OnInit {
   guardarProducto(id: any): void {
     this.productosService.guardarProducto(id, this.producto);
     alert('Producto guardado!');
+    this.router.navigate(['/']); // this.router.navigateByUrl('/');
   }
 
   eliminarProducto(id: any): void {
     let respuesta = confirm(`¿Desea eliminar a ${this.producto.nombre}?`);
     if(respuesta) {
       this.productosService.eliminarProducto(id);
+      alert('Producto eliminado!');
+      this.router.navigate(['/']);
     }
   }
 

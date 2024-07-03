@@ -28,7 +28,7 @@
         <img
           mat-card-image
           src="http://localhost/api/modelos1/img/productos/{{
-            producto.imagen
+            producto.imagen||'nodisponible.png'
           }}"
           alt="{{ producto.nombre }}"
         />
