@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SubirArchivosService {
-  url = 'http://localhost/api/modelos1/subirarchivos.php';
+  url = 'http://localhost/api/modelos1/subirarchivo.php';
 
   constructor(private http: HttpClient) { }
 

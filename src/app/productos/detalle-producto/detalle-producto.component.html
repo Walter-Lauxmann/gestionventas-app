@@ -3,6 +3,8 @@
   <div class="row">
     <div class="col-md-4">
       <img src="http://localhost/api/modelos1/img/productos/{{producto.imagen||'nodisponible.png'}}" alt="{{producto.nombre}}">
+      <input type="text" name="file" [(ngModel)]="producto.imagen">
+      <input type="file" name="imagen" (change)="capturarImagen($event)">
     </div>
     <div class="col-md-8">
       <div class="row">
@@ -45,7 +47,7 @@
       </div>
 
       <div>
-        <button mat-raised-button color="primary" (click)="guardarProducto(producto.id)">
+        <button mat-raised-button color="primary" (click)="upload();guardarProducto(producto.id)" type="button">
           <mat-icon>done</mat-icon>Guardar
         </button>
         @if( producto.id > 0 ) {
