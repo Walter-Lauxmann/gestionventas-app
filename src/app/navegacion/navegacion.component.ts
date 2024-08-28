@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UsuariosService } from '../servicios/usuarios.service';
@@ -30,12 +30,17 @@ import { UsuariosService } from '../servicios/usuarios.service';
 export class NavegacionComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
 
-  logueado: boolean = false;
+  logueado:boolean = false;
 
   constructor(private usuarioService: UsuariosService, private router: Router) {}
 
   ngOnInit(): void {
-    this.logueado = this.usuarioService.estaLogueado();
+    if(sessionStorage.getItem('usuarioActual')) {
+      this.logueado = true;
+    } else {
+      this.logueado = false;
+    }
+    console.log(this.logueado);
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -46,6 +51,7 @@ export class NavegacionComponent implements OnInit {
 
   logout() {
     this.usuarioService.logout();
+    this.logueado = false;
     this.router.navigateByUrl('/');
   }
 }

@@ -5,17 +5,15 @@ import { Usuario } from '../clases/usuario';
   providedIn: 'root'
 })
 export class UsuariosService {
-  private logueado: boolean = false;
-  private usuarioLogueado: Usuario = {usuario: ''};
+  public estaLogueado: boolean = false;
+  private usuarioLogueado: Usuario = {usuario: '', nivel: 0};
 
   constructor() { }
 
-  estaLogueado(): boolean {
-    return this.logueado;
-  }
+
 
   setUsuarioLogueado(usuario: Usuario) {
-    this.logueado = true;
+    this.estaLogueado = true;
     this.usuarioLogueado = usuario;
     sessionStorage.setItem('usuarioActual', JSON.stringify(usuario));
   }
@@ -25,7 +23,7 @@ export class UsuariosService {
   }
 
   logout() {
-    this.logueado = false;
+    this.estaLogueado = false;
     sessionStorage.removeItem('usuarioActual');
   }
 }

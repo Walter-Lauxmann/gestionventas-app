@@ -7,5 +7,5 @@ import { usuarioActivoGuard } from './guards/usuario-activo.guard';
 export const routes: Routes = [
     { path: '', component: ListaProductosComponent },
     { path: 'detalle-producto/:id', component: DetalleProductoComponent, canActivate: [usuarioActivoGuard] },
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent } 
 ];

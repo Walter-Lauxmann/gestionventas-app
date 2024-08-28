@@ -32,8 +32,9 @@ export class LoginComponent implements OnInit {
     this.loginService.login(usuario, password)
       .subscribe(
         res => {
-          let u: Usuario = {usuario: usuario};
+          let u: Usuario = {usuario: usuario, nivel: 0};
           this.usuarioService.setUsuarioLogueado(u);
+          this.usuarioService.estaLogueado = true;
         },
         error => {
           console.error(error);
